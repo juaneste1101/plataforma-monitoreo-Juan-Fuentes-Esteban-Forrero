@@ -2,14 +2,12 @@ package src;
 
 public class MatrizEstacionHora {
     private String[] estaciones;
-    private double[][] matrizPm25; // Filas: Estaciones, Columnas: Horas (0-23)
+    private double[][] matrizPm25;
 
     public MatrizEstacionHora(String[] estaciones) {
         this.estaciones = estaciones;
-        // Se inicializa la matriz con el número de estaciones y 24 horas
         this.matrizPm25 = new double[estaciones.length][24];
         
-        // Inicializar posiciones en -1 para diferenciar horas sin datos de mediciones en 0
         for (int i = 0; i < estaciones.length; i++) {
             for (int j = 0; j < 24; j++) {
                 matrizPm25[i][j] = -1;
@@ -34,23 +32,30 @@ public class MatrizEstacionHora {
     }
 
     public void mostrarMatriz() {
-        System.out.println("\n=== MATRIZ DE MATRICES: ESTACIÓN x HORA (PM2.5) ===");
-        System.out.print("Estación / Hora\t");
-        for (int h = 0; h < 24; h += 3) { // Muestra encabezados cada 3 horas para legibilidad
-            System.out.printf("%02d:00\t", h);
-        }
-        System.out.println();
-
-        for (int i = 0; i < estaciones.length; i++) {
-            System.out.print(estaciones[i] + "\t\t");
-            for (int j = 0; j < 24; j += 3) {
-                if (matrizPm25[i][j] == -1) {
-                    System.out.print("N/D\t");
-                } else {
-                    System.out.printf("%.1f\t", matrizPm25[i][j]);
-                }
+        System.out.println("\n=== MATRIZ ESTACIÓN x HORA (PM2.5) ===");
+        
+        // Imprimir en 4 bloques de 6 horas para legibilidad en consola
+        for (int bloque = 0; bloque < 24; bloque += 6) {
+            int horaFin = bloque + 6;
+            System.out.printf("\n--- Horario %02d:00 a %02d:00 ---\n", bloque, horaFin - 1);
+            
+            System.out.printf("%-10s", "Estación");
+            for (int h = bloque; h < horaFin; h++) {
+                System.out.printf("%-8s", String.format("%02d:00", h));
             }
             System.out.println();
+
+            for (int i = 0; i < estaciones.length; i++) {
+                System.out.printf("%-10s", estaciones[i]);
+                for (int j = bloque; j < horaFin; j++) {
+                    if (matrizPm25[i][j] == -1) {
+                        System.out.printf("%-8s", "N/D");
+                    } else {
+                        System.out.printf("%-8.1f", matrizPm25[i][j]);
+                    }
+                }
+                System.out.println();
+            }
         }
     }
 }
