@@ -1,0 +1,17 @@
+# Compilados de Java
+*.class
+bin/
+out/
+target/
+
+# Archivos pesados de datos (el CSV grande de prueba local)
+descartes.csv
+
+# Configuraciones de IDEs
+.idea/
+.vscode/
+*.iml
+
+# Sistema operativo y logs
+.DS_Store
+*.log
