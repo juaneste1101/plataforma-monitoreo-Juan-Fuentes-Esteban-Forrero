@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=== INICIANDO SISTEMA DE MONITOREO AMBIENTAL (SEMANA 02) ===");
         
-        String rutaArchivo = "datos/lecturas_prueba.csv";
+        String rutaArchivo = "data/lecturas.csv";
 
         ProcesadorIngesta procesador = new ProcesadorIngesta();
         procesador.procesarArchivo(rutaArchivo);

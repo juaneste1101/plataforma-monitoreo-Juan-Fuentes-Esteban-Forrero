@@ -3,9 +3,15 @@
 **Integrantes:**
 - Juan Fuentes
 - Esteban Forrero
+- Pierre Puentes
 
 ## Descripción del Proyecto
-Núcleo de procesamiento y validación de datos para la Red de Monitoreo Ambiental. Desarrollado en Java puro sin bases de datos externas, aplicando estructuras de datos modulares, control de excepciones y trazabilidad con Git.
+Núcleo de procesamiento, validación y almacenamiento dinámico de datos para la Red de Monitoreo Ambiental. Desarrollado en Java puro sin bases de datos externas, aplicando estructuras de datos modulares (TAD), matrices bidimensionales, control de excepciones y trazabilidad estricta con Git.
+
+## Estructura del Proyecto
+- `src/`: Contiene el código fuente del motor de ingesta, estructuras de datos y matrices.
+- `data/`: Contiene el dataset de prueba (`lecturas.csv`).
+- `bitacoras/`: Almacena las bitáctoras grupales de seguimiento de cada hito semanal.
 
 ## Ejecución
 1. Compilar los archivos fuente desde la raíz:
